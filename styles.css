@@ -1,0 +1,311 @@
+/* -------------------------------------------------
+   Neon Web – Dark Theme (default)
+   ------------------------------------------------- */
+
+/* CSS Custom Properties */
+:root {
+  --bg-color: #0a0a0a;
+  --text-color: #e0e0e0;
+  --primary-neon: #0ff;          /* Cyan */
+  --secondary-neon: #ff00ff;     /* Magenta */
+  --accent-neon: #ffcc00;        /* Amber */
+  --border-radius: 0.5rem;
+  --transition-speed: 0.3s;
+  --max-width: 1200px;
+}
+
+/* Global Reset & Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%; /* 16px */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Utility Classes */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Header */
+.site-header {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-neon);
+  text-decoration: none;
+}
+
+/* Neon Effect for Text */
+.neon {
+  text-shadow:
+    0 0 5px var(--primary-neon),
+    0 0 10px var(--primary-neon),
+    0 0 20px var(--primary-neon),
+    0 0 30px var(--secondary-neon),
+    0 0 40px var(--secondary-neon);
+}
+
+/* Navigation */
+.site-nav {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color var(--transition-speed);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--primary-neon);
+  transition: width var(--transition-speed);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--primary-neon);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+
+/* Mobile Nav Toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: var(--primary-neon);
+  transition: transform var(--transition-speed);
+}
+
+.hamburger::before {
+  transform: translateY(-6px);
+}
+
+.hamburger::after {
+  transform: translateY(4px);
+}
+
+/* Hero Section */
+.hero {
+  background: radial-gradient(circle at 50% 20%, #111, #0a0a0a);
+  padding: 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=1400&q=80') no-repeat center/cover;
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+}
+
+/* Neon Text Animation */
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 5px var(--primary-neon),
+      0 0 10px var(--primary-neon),
+      0 0 20px var(--primary-neon),
+      0 0 30px var(--secondary-neon),
+      0 0 40px var(--secondary-neon);
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+  }
+}
+
+.neon-text {
+  color: var(--primary-neon);
+  animation: neon-flicker 3s linear infinite;
+}
+
+/* Hero Title */
+.hero-title {
+  font-size: clamp(2rem, 8vw, 4rem);
+  margin-bottom: 1rem;
+}
+
+/* Hero Subtitle */
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.btn-primary {
+  background: var(--primary-neon);
+  color: #000;
+  box-shadow:
+    0 0 5px var(--primary-neon),
+    0 0 10px var(--primary-neon);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--secondary-neon);
+  box-shadow:
+    0 0 10px var(--secondary-neon),
+    0 0 20px var(--secondary-neon);
+}
+
+/* Sections */
+section {
+  padding: 4rem 0;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Section Text */
+.section-text {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Contact Form */
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem auto 0;
+}
+
+.contact-form label {
+  font-weight: 500;
+  color: var(--accent-neon);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--primary-neon);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--secondary-neon);
+  box-shadow: 0 0 8px var(--secondary-neon);
+}
+
+/* Footer */
+.site-footer {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+    gap: 1rem;
+    transform: translateX(100%);
+    transition: transform var(--transition-speed);
+  }
+
+  .nav-list.show {
+    transform: translateX(0);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* -------------------------------------------------
+   End of Styles
+   ------------------------------------------------- */
