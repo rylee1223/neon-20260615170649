@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="#" class="logo">Ne<span class="neon">on</span></a>
+      <nav class="site-nav" id="nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="nav" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="home">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-container">
+        <h1 class="hero-title neon-text">Welcome to Neon World</h1>
+        <p class="hero-subtitle">Experience the glow of modern design.</p>
+        <a href="#about" class="btn btn-primary">Learn More</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title neon-text">About Us</h2>
+        <p class="section-text">
+          We create vibrant, responsive, and immersive web experiences that shine bright in any environment.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title neon-text">Get in Touch</h2>
+        <form class="contact-form" id="contactForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p>&copy; <span id="year"></span> Neon Web. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
